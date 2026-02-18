@@ -18,7 +18,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 3,
+  "id": 4,
   "links": [],
   "panels": [
     {
@@ -34,7 +34,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -70,7 +71,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "12.0.0",
+      "pluginVersion": "11.5.2",
       "targets": [
         {
           "groupBy": [],
@@ -156,7 +157,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.0.0",
+      "pluginVersion": "11.5.2",
       "targets": [
         {
           "groupBy": [
@@ -201,136 +202,81 @@
       },
       "fieldConfig": {
         "defaults": {
-          "custom": {
-            "align": "left",
-            "cellOptions": {
-              "type": "auto"
-            },
-            "filterable": true,
-            "inspect": false
+          "color": {
+            "mode": "palette-classic"
           },
-          "mappings": [
-            {
-              "options": {
-                "a": {
-                  "index": 4,
-                  "text": "paused"
-                },
-                "d": {
-                  "index": 10,
-                  "text": "preloading"
-                },
-                "e": {
-                  "index": 7,
-                  "text": "ended"
-                },
-                "f": {
-                  "index": 8,
-                  "text": "fatal error"
-                },
-                "k": {
-                  "index": 2,
-                  "text": "seeking"
-                },
-                "p": {
-                  "index": 1,
-                  "text": "playing"
-                },
-                "q": {
-                  "index": 9,
-                  "text": "quit"
-                },
-                "r": {
-                  "index": 3,
-                  "text": "rebuffering"
-                },
-                "res": {
-                  "index": 5,
-                  "text": "resume"
-                },
-                "s": {
-                  "index": 0,
-                  "text": "starting"
-                },
-                "w": {
-                  "index": 6,
-                  "text": "waiting"
-                }
-              },
-              "type": "value"
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
             },
-            {
-              "options": {
-                "pattern": ".*Chrome.*",
-                "result": {
-                  "index": 11,
-                  "text": "Chrome"
-                }
-              },
-              "type": "regex"
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
             },
-            {
-              "options": {
-                "pattern": ".*Firefox.*",
-                "result": {
-                  "index": 12,
-                  "text": "Firefox"
-                }
-              },
-              "type": "regex"
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
             },
-            {
-              "options": {
-                "pattern": ".*Safari.*",
-                "result": {
-                  "index": 13,
-                  "text": "Safari"
-                }
-              },
-              "type": "regex"
+            "thresholdsStyle": {
+              "mode": "off"
             }
-          ],
+          },
+          "mappings": [],
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
                 "value": 80
               }
             ]
-          }
+          },
+          "unit": "ms"
         },
         "overrides": []
       },
       "gridPos": {
         "h": 8,
-        "w": 12,
+        "w": 6,
         "x": 12,
         "y": 0
       },
-      "id": 3,
+      "id": 2,
       "options": {
-        "cellHeight": "sm",
-        "footer": {
-          "countRows": false,
-          "fields": "",
-          "reducer": [
-            "sum"
-          ],
-          "show": false
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
         },
-        "showHeader": true,
-        "sortBy": [
-          {
-            "desc": true,
-            "displayName": "last"
-          }
-        ]
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
       },
-      "pluginVersion": "12.0.0",
+      "pluginVersion": "11.5.2",
       "targets": [
         {
           "groupBy": [
@@ -339,56 +285,155 @@
                 "cmcd_key_sid::tag"
               ],
               "type": "tag"
-            },
-            {
-              "params": [
-                "request_user_agent::tag"
-              ],
-              "type": "tag"
             }
           ],
           "measurement": "cmcd_metrics",
           "orderByTime": "ASC",
           "policy": "default",
           "refId": "A",
-          "resultFormat": "table",
+          "resultFormat": "time_series",
           "select": [
             [
               {
                 "params": [
-                  "cmcd_data"
+                  "cmcd_key_bl"
                 ],
                 "type": "field"
-              },
-              {
-                "params": [],
-                "type": "count"
-              }
-            ],
-            [
-              {
-                "params": [
-                  "cmcd_key_sta"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "last"
-              },
-              {
-                "params": [
-                  "status"
-                ],
-                "type": "alias"
               }
             ]
           ],
           "tags": []
         }
       ],
-      "title": "Active Session IDs",
-      "type": "table"
+      "title": "Buffer Lenght by SID",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P951FEA4DE68E13C5"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "ms"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 18,
+        "y": 0
+      },
+      "id": 1,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.5.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "P951FEA4DE68E13C5"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$__interval"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "null"
+              ],
+              "type": "fill"
+            }
+          ],
+          "measurement": "cmcd_metrics",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "cmcd_key_bl"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "mean"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "title": "Mean Buffer Lenght",
+      "type": "timeseries"
     },
     {
       "datasource": {
@@ -403,7 +448,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -439,7 +485,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "12.0.0",
+      "pluginVersion": "11.5.2",
       "targets": [
         {
           "groupBy": [
@@ -521,7 +567,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -557,7 +604,7 @@
           }
         ]
       },
-      "pluginVersion": "12.0.0",
+      "pluginVersion": "11.5.2",
       "targets": [
         {
           "groupBy": [
@@ -670,7 +717,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -678,7 +726,7 @@
               }
             ]
           },
-          "unit": "ms"
+          "unit": "bool"
         },
         "overrides": []
       },
@@ -688,7 +736,7 @@
         "x": 12,
         "y": 8
       },
-      "id": 2,
+      "id": 14,
       "options": {
         "legend": {
           "calcs": [],
@@ -702,7 +750,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.0.0",
+      "pluginVersion": "11.5.2",
       "targets": [
         {
           "groupBy": [
@@ -722,7 +770,7 @@
             [
               {
                 "params": [
-                  "cmcd_key_bl"
+                  "cmcd_key_bs"
                 ],
                 "type": "field"
               }
@@ -731,7 +779,7 @@
           "tags": []
         }
       ],
-      "title": "Buffer Lenght by SID",
+      "title": "Buffer Starvation by SID",
       "type": "timeseries"
     },
     {
@@ -782,7 +830,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -790,7 +839,7 @@
               }
             ]
           },
-          "unit": "ms"
+          "unit": "KBs"
         },
         "overrides": []
       },
@@ -800,7 +849,7 @@
         "x": 18,
         "y": 8
       },
-      "id": 1,
+      "id": 15,
       "options": {
         "legend": {
           "calcs": [],
@@ -814,25 +863,15 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.0.0",
+      "pluginVersion": "11.5.2",
       "targets": [
         {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "P951FEA4DE68E13C5"
-          },
           "groupBy": [
             {
               "params": [
-                "$__interval"
+                "cmcd_key_sid::tag"
               ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
+              "type": "tag"
             }
           ],
           "measurement": "cmcd_metrics",
@@ -844,20 +883,16 @@
             [
               {
                 "params": [
-                  "cmcd_key_bl"
+                  "cmcd_key_mtp"
                 ],
                 "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
               }
             ]
           ],
           "tags": []
         }
       ],
-      "title": "Mean Buffer Lenght",
+      "title": "Measured Throughput by SID",
       "type": "timeseries"
     },
     {
@@ -872,7 +907,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               }
             ]
           },
@@ -904,7 +940,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "12.0.0",
+      "pluginVersion": "11.5.2",
       "targets": [
         {
           "groupBy": [
@@ -955,7 +991,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               }
             ]
           },
@@ -994,7 +1031,7 @@
         "sizing": "manual",
         "valueMode": "color"
       },
-      "pluginVersion": "12.0.0",
+      "pluginVersion": "11.5.2",
       "targets": [
         {
           "groupBy": [
@@ -1044,6 +1081,431 @@
       "fieldConfig": {
         "defaults": {
           "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "KBs"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 12,
+        "y": 16
+      },
+      "id": 17,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.5.2",
+      "targets": [
+        {
+          "groupBy": [
+            {
+              "params": [
+                "cmcd_key_sid::tag"
+              ],
+              "type": "tag"
+            }
+          ],
+          "measurement": "cmcd_metrics",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "cmcd_key_br"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "title": "Encoded Bitrate by SID",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P951FEA4DE68E13C5"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "KBs"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 6,
+        "x": 18,
+        "y": 16
+      },
+      "id": 16,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "11.5.2",
+      "targets": [
+        {
+          "groupBy": [
+            {
+              "params": [
+                "cmcd_key_sid::tag"
+              ],
+              "type": "tag"
+            }
+          ],
+          "measurement": "cmcd_metrics",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "cmcd_key_tb"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "title": "Top Bitrate by SID",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P951FEA4DE68E13C5"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "left",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "filterable": true,
+            "inspect": false
+          },
+          "mappings": [
+            {
+              "options": {
+                "a": {
+                  "index": 4,
+                  "text": "paused"
+                },
+                "d": {
+                  "index": 10,
+                  "text": "preloading"
+                },
+                "e": {
+                  "index": 7,
+                  "text": "ended"
+                },
+                "f": {
+                  "index": 8,
+                  "text": "fatal error"
+                },
+                "k": {
+                  "index": 2,
+                  "text": "seeking"
+                },
+                "p": {
+                  "index": 1,
+                  "text": "playing"
+                },
+                "q": {
+                  "index": 9,
+                  "text": "quit"
+                },
+                "r": {
+                  "index": 3,
+                  "text": "rebuffering"
+                },
+                "res": {
+                  "index": 5,
+                  "text": "resume"
+                },
+                "s": {
+                  "index": 0,
+                  "text": "starting"
+                },
+                "w": {
+                  "index": 6,
+                  "text": "waiting"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "pattern": ".*Chrome.*",
+                "result": {
+                  "index": 11,
+                  "text": "Chrome"
+                }
+              },
+              "type": "regex"
+            },
+            {
+              "options": {
+                "pattern": ".*Firefox.*",
+                "result": {
+                  "index": 12,
+                  "text": "Firefox"
+                }
+              },
+              "type": "regex"
+            },
+            {
+              "options": {
+                "pattern": ".*Safari.*",
+                "result": {
+                  "index": 13,
+                  "text": "Safari"
+                }
+              },
+              "type": "regex"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 24,
+        "x": 0,
+        "y": 24
+      },
+      "id": 3,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": true,
+            "displayName": "last"
+          }
+        ]
+      },
+      "pluginVersion": "11.5.2",
+      "targets": [
+        {
+          "groupBy": [
+            {
+              "params": [
+                "cmcd_key_sid::tag"
+              ],
+              "type": "tag"
+            },
+            {
+              "params": [
+                "request_user_agent::tag"
+              ],
+              "type": "tag"
+            }
+          ],
+          "measurement": "cmcd_metrics",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT count(\"cmcd_data\"), last(\"cmcd_key_sta\") AS \"status\", last(\"cmcd_key_v\") AS \"cmcd_version\", last(\"cmcd_key_st\") AS \"stream_type\", last(\"cmcd_key_pr\") AS \"playback_rate\" FROM \"cmcd_metrics\" WHERE $timeFilter GROUP BY \"cmcd_key_sid\"::tag, \"request_user_agent\"::tag",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "table",
+          "select": [
+            [
+              {
+                "params": [
+                  "cmcd_data"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "count"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "cmcd_key_sta"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "last"
+              },
+              {
+                "params": [
+                  "status"
+                ],
+                "type": "alias"
+              }
+            ]
+          ],
+          "tags": []
+        }
+      ],
+      "title": "Active Session IDs",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P951FEA4DE68E13C5"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
             "mode": "continuous-GrYlRd"
           },
           "mappings": [],
@@ -1051,7 +1513,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -1066,8 +1529,8 @@
       "gridPos": {
         "h": 8,
         "w": 12,
-        "x": 12,
-        "y": 16
+        "x": 0,
+        "y": 31
       },
       "id": 8,
       "options": {
@@ -1094,7 +1557,7 @@
         "sizing": "auto",
         "valueMode": "color"
       },
-      "pluginVersion": "12.0.0",
+      "pluginVersion": "11.5.2",
       "targets": [
         {
           "groupBy": [
@@ -1141,7 +1604,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "semi-dark-red",
@@ -1156,7 +1620,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 24
+        "y": 31
       },
       "id": 13,
       "options": {
@@ -1181,7 +1645,7 @@
         "sizing": "auto",
         "valueMode": "color"
       },
-      "pluginVersion": "12.0.0",
+      "pluginVersion": "11.5.2",
       "targets": [
         {
           "datasource": {
@@ -1266,7 +1730,7 @@
   ],
   "preload": false,
   "refresh": "5s",
-  "schemaVersion": 41,
+  "schemaVersion": 40,
   "tags": [],
   "templating": {
     "list": []
@@ -1279,6 +1743,6 @@
   "timezone": "browser",
   "title": "CMCD Dashboard v2",
   "uid": "734543ff-bcd2-4978-addc-1dd578b9ba04",
-  "version": 9,
+  "version": 1,
   "weekStart": "monday"
 }
