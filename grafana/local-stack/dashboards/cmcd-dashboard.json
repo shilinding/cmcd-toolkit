@@ -305,7 +305,7 @@
           "tags": []
         }
       ],
-      "title": "Buffer Lenght by SID",
+      "title": "Buffer Length by SID",
       "type": "timeseries"
     },
     {
@@ -432,7 +432,7 @@
           "tags": []
         }
       ],
-      "title": "Mean Buffer Lenght",
+      "title": "Mean Buffer Length",
       "type": "timeseries"
     },
     {
